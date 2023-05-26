@@ -1,0 +1,26 @@
+package edu.project.JobPortalApplication.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.project.JobPortalApplication.entity.Project;
+import edu.project.JobPortalApplication.repositories.ProjectRepo;
+
+
+@Repository
+public class ProjectDao {
+
+	@Autowired
+	private ProjectRepo projectRepo;
+	
+	public Project saveProject(Project project)
+	{
+		return projectRepo.save(project);
+	}
+
+	public void deleteProject(Project project) {
+	
+		projectRepo.delete(project);
+		
+	}
+}
