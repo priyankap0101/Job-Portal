@@ -8,7 +8,7 @@ import lombok.Setter;
 @Component
 @Getter
 @Setter
-public class responseStructre <T> {
+public class responseStructre<T> {
 
 	private int statusCode;
 	private String message;

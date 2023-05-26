@@ -47,13 +47,13 @@ public class EmployerDao {
 		}
 
 	}
-	public void deleteEmployer( Employer employer)
-	{
+
+	public void deleteEmployer(Employer employer) {
 		employerRepo.delete(employer);
 	}
-	public List<Employer> getAllEmployer()
-	{
+
+	public List<Employer> getAllEmployer() {
 		return employerRepo.getAllEmployer();
 	}
-	
+
 }

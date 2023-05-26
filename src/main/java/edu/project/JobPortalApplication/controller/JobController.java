@@ -20,39 +20,38 @@ import edu.project.JobPortalApplication.entity.Job;
 import edu.project.JobPortalApplication.service.JobService;
 import edu.project.JobPortalApplication.util.responseStructre;
 
-
-
 @RestController
 @RequestMapping("/job")
 public class JobController {
 
 	@Autowired
 	private JobService jobService;
-	
+
 	@PostMapping
-	public ResponseEntity<responseStructre<Job>> addJob(@Valid @RequestBody JobDto jobDto,@Valid @RequestParam long employerId)
-	{
+	public ResponseEntity<responseStructre<Job>> addJob(@Valid @RequestBody JobDto jobDto,
+			@Valid @RequestParam long employerId) {
 		return jobService.addJob(jobDto, employerId);
-		
+
 	}
+
 	@GetMapping
-	public ResponseEntity<responseStructre<Job>>  getJob(@RequestParam long jobId)
-	{
+	public ResponseEntity<responseStructre<Job>> getJob(@RequestParam long jobId) {
 		return jobService.getJob(jobId);
 	}
+
 	@PutMapping
-	public ResponseEntity<responseStructre<JobDto>> updateJob(@RequestBody Job job, @RequestParam long id)
-	{
+	public ResponseEntity<responseStructre<JobDto>> updateJob(@RequestBody Job job, @RequestParam long id) {
 		return jobService.updateJob(job, id);
 	}
+
 	@DeleteMapping
 	public ResponseEntity<responseStructre<JobDto>> deleteJob(@RequestParam long jobId) {
-		
+
 		return jobService.deleteJob(jobId);
 	}
+
 	@GetMapping("getAllJob")
-	public List<Job> getAllJob()
-	{
+	public List<Job> getAllJob() {
 		return jobService.getAllJob();
 	}
 }

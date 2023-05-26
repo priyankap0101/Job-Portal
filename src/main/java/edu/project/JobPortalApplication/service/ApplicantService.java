@@ -97,59 +97,14 @@ public class ApplicantService {
 		}
 	}
 
-	/*public ResponseEntity<responseStructre<ApplicantDto>> deleteApplicantById(int applicantId) {
-
-		Applicant applicant = applicantDao.getApplicant(applicantId);
-
-		if (applicant != null) {
-			// List<JobApplication> applications=applicant.getJobApplications();
-
-			for (JobApplication applicantJobApplication : applicant.getJobApplications()) {
-				applicant.setJobApplications(null);
-				applicationDao.createJobApplication(applicantJobApplication);
-
-			}
-
-			applicantDao.deleteApplicant(applicant);
-
-			Resume resume = applicant.getResume();
-
-			if (resume != null) {
-				resume.setSkills(null);
-
-				resumeDao.saveResume(resume);
-
-				for (Project project : applicant.getResume().getProjects()) {
-					applicant.setResume(null);
-
-					projectDao.deleteProject(project);
-
-				}
-
-				resumeDao.deleteResume(resume);
-			}
-
-			ApplicantDto applicantDto = this.modelMapper.map(applicant, ApplicantDto.class);
-			responseStructre<ApplicantDto> responseStructre = new responseStructre<>();
-			responseStructre.setStatusCode(HttpStatus.OK.value());
-			responseStructre.setMessage("Applicant Deleetd Successfully");
-			responseStructre.setData(applicantDto);
-
-			return new ResponseEntity<responseStructre<ApplicantDto>>(responseStructre, HttpStatus.OK);
-
-		}
-
-		else {
-			throw new ApplicantNotFoundById("Applicant Not Found");
-		}
-	}*/
-	
 	public ResponseEntity<responseStructre<ApplicantDto>> deleteApplicant(int applicantId) {
 		Applicant applicant = applicantDao.getApplicant(applicantId);
-		
+
 		if (applicant != null) {
-			/*Before deleting the applicant the applicant is to null in all the
-			  jobApplications later the applicant is delete the applicant */
+			/*
+			 * Before deleting the applicant the applicant is to null in all the
+			 * jobApplications later the applicant is delete the applicant
+			 */
 			for (JobApplication jobApplication : applicant.getJobApplications()) {
 				jobApplication.setApplicant(null);
 				// createJobApplication() method used to update
@@ -157,20 +112,22 @@ public class ApplicantService {
 			}
 			applicantDao.deleteApplicant(applicant);
 			Resume resume = applicant.getResume();
-			/*After the applicant is deleted the the resume linked to the applicant
-			 * should be deleted*/
-			if(resume!=null) {
-				/*Before deleting the resume the skills should be set to null
-				 * in the resume.*/
+			/*
+			 * After the applicant is deleted the the resume linked to the applicant should
+			 * be deleted
+			 */
+			if (resume != null) {
+				/*
+				 * Before deleting the resume the skills should be set to null in the resume.
+				 */
 				resume.setSkills(null);
 				// saveResume() method used to update
 				resumeDao.saveResume(resume);
 				for (Project project : applicant.getResume().getProjects()) {
 					projectDao.deleteProject(project);
 				}
-					resumeDao.deleteResume(resume);
+				resumeDao.deleteResume(resume);
 			}
-
 
 			ApplicantDto applicantDto = this.modelMapper.map(applicant, ApplicantDto.class);
 			responseStructre<ApplicantDto> responseStructure = new responseStructre<>();
@@ -182,9 +139,8 @@ public class ApplicantService {
 		throw new ApplicantNotFoundById("Failed to delete Applicant!!");
 
 	}
-	
-	public List<Applicant> getAllApplicant()
-	{
+
+	public List<Applicant> getAllApplicant() {
 		return applicantDao.getAllApplicant();
 	}
 

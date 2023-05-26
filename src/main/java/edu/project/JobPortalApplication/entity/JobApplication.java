@@ -23,16 +23,13 @@ public class JobApplication {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long jobApplicationId;
 	private LocalDateTime jobApplicationDateTime;
-	
+
 	@ManyToOne
 	@JsonIgnore
 	private Job job;
-	
+
 	@ManyToOne
 	@JoinColumn
 	private Applicant applicant;
-	
-	
-	
-	
+
 }

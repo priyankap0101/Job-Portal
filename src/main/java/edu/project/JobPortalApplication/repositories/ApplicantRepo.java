@@ -8,9 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import edu.project.JobPortalApplication.entity.Applicant;
 
-
 public interface ApplicantRepo extends JpaRepository<Applicant, Long> {
 
-	@Query(value =  "select a from Applicant  a" )
+	@Query(value = "select a from Applicant  a")
 	public Optional<List<Applicant>> getAllApplicant();
 }

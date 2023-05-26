@@ -14,13 +14,13 @@ import edu.project.JobPortalApplication.util.responseStructre;
 @RestController
 @RequestMapping("/skills")
 public class SkillController {
-	
-		@Autowired
-		private SkillService services;
 
-		@PostMapping
-	public ResponseEntity<responseStructre<Resume>> saveSkill(@RequestParam long applicantId, @RequestParam String [] skills)
-	{
+	@Autowired
+	private SkillService services;
+
+	@PostMapping
+	public ResponseEntity<responseStructre<Resume>> saveSkill(@RequestParam long applicantId,
+			@RequestParam String[] skills) {
 		return services.saveSkill(applicantId, skills);
 	}
 }

@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import edu.project.JobPortalApplication.entity.Skill;
 
-
-
 public interface SkillRepo extends JpaRepository<Skill, Long> {
 
 	@Query(value = "select s from Skill s where s.skillName=?1")

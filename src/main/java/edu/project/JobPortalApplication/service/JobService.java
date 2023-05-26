@@ -136,11 +136,10 @@ public class JobService {
 			throw new JobNotFoundById("Job not found with requested id");
 		}
 	}
-	
-	public List<Job> getAllJob()
-	{
-		 return dao.getAllJob();
-		
+
+	public List<Job> getAllJob() {
+		return dao.getAllJob();
+
 	}
 
 }

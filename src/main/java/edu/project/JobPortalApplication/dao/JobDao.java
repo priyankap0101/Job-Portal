@@ -45,13 +45,13 @@ public class JobDao {
 		}
 
 	}
-	public void deleteJob(Job job)
-	{
+
+	public void deleteJob(Job job) {
 
 		jobRepo.delete(job);
 	}
-	public List<Job> getAllJob()
-	{
+
+	public List<Job> getAllJob() {
 		return jobRepo.getAllJob();
 	}
 

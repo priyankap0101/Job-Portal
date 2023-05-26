@@ -21,16 +21,16 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectService projectService;
-	
+
 	@PostMapping
-	public ResponseEntity<responseStructre<Resume>> saveProject(@RequestParam long applicantId, @RequestBody ProjectDto projectDto)
-	{
+	public ResponseEntity<responseStructre<Resume>> saveProject(@RequestParam long applicantId,
+			@RequestBody ProjectDto projectDto) {
 		return projectService.saveProjects(applicantId, projectDto);
 	}
+
 	@DeleteMapping
-	public ResponseEntity<responseStructre<Project>> deleteProject(@RequestBody Project project)
-	{
+	public ResponseEntity<responseStructre<Project>> deleteProject(@RequestBody Project project) {
 		return projectService.deleteProject(project);
 	}
-	
+
 }

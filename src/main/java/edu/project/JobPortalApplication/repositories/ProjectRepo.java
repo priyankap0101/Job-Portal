@@ -4,8 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import edu.project.JobPortalApplication.entity.Project;
 
-
-
 public interface ProjectRepo extends JpaRepository<Project, Long> {
 
 }

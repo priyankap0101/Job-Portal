@@ -20,15 +20,15 @@ public class ResumController {
 
 	@Autowired
 	private ResumeService resumeService;
-	
+
 	@PostMapping
-	public ResponseEntity<responseStructre<Resume>> saveResume(@RequestParam long applicantId, @RequestBody ResumeDto dto)
-	{
+	public ResponseEntity<responseStructre<Resume>> saveResume(@RequestParam long applicantId,
+			@RequestBody ResumeDto dto) {
 		return resumeService.saveResume(applicantId, dto);
 	}
+
 	@DeleteMapping
-	public ResponseEntity<responseStructre<Resume>> deleteResume(@RequestBody Resume resume) 
-	{
+	public ResponseEntity<responseStructre<Resume>> deleteResume(@RequestBody Resume resume) {
 		return resumeService.deleteResume(resume);
 	}
 }

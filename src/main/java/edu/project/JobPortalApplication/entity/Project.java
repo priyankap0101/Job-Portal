@@ -17,11 +17,8 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long projectId;
-    private String projectTitle;
-    private String projectDescription;
-    private String projectSiteURL;
-    
+	private String projectTitle;
+	private String projectDescription;
+	private String projectSiteURL;
 
-    
-    
 }

@@ -28,28 +28,24 @@ public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long jobId;
-	
-	//@NotEmpty(message = "Invalid Job Title")
+
+	// @NotEmpty(message = "Invalid Job Title")
 	private String jobTitle;
-	
-	//@Size(min = 50, max = 100)  //description size should be min 50
+
+	// @Size(min = 50, max = 100) //description size should be min 50
 	private String jobDescription;
-	
-	
+
 	private String company;
-	
-	
+
 	private double salary;
-	
-	
+
 	private String jobLocation;
 	private LocalDateTime jobCreationDateTime;
-	
-	
+
 	@ManyToOne
 	@JoinColumn
 	private Employer employer;
-	
+
 	@OneToMany(mappedBy = "job")
 	private List<JobApplication> applications;
 }

@@ -28,8 +28,6 @@ public class Applicant {
 	private String applicantEmail;
 	private long applicantPhoneNo;
 	private String applicantPassword;
-	
-	
 
 	@OneToMany(mappedBy = "applicant")
 	@JsonIgnore
@@ -38,9 +36,5 @@ public class Applicant {
 	@OneToOne
 	@JoinColumn
 	private Resume resume;
-	
-		
-	}
-	
-	
 
+}

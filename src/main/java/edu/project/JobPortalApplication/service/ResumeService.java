@@ -52,9 +52,8 @@ public class ResumeService {
 			return null;
 		}
 	}
-	
-	public ResponseEntity<responseStructre<Resume>> deleteResume(Resume resume) 
-	{
+
+	public ResponseEntity<responseStructre<Resume>> deleteResume(Resume resume) {
 		dao.deleteResume(resume);
 		responseStructre<Resume> responseStructre = new responseStructre<>();
 

@@ -25,30 +25,30 @@ public class EmployerController {
 
 	@Autowired
 	private EmployerService employerService;
-	
+
 	@PostMapping
-	public ResponseEntity<responseStructre<Employer>> addEmployer(@Valid @RequestBody Employer employer)
-	{
+	public ResponseEntity<responseStructre<Employer>> addEmployer(@Valid @RequestBody Employer employer) {
 		return employerService.addEmployer(employer);
 	}
+
 	@PutMapping
-	public  ResponseEntity<responseStructre<Employer>> updateEmployer(@RequestBody Employer employer,@RequestParam long employerId)
-	{
+	public ResponseEntity<responseStructre<Employer>> updateEmployer(@RequestBody Employer employer,
+			@RequestParam long employerId) {
 		return employerService.updateEmployer(employer, employerId);
 	}
+
 	@DeleteMapping
-	public ResponseEntity<responseStructre<Employer>> deleteEmployer(@RequestParam long employerId)
-	{
+	public ResponseEntity<responseStructre<Employer>> deleteEmployer(@RequestParam long employerId) {
 		return employerService.deleteEmployer(employerId);
 	}
+
 	@GetMapping
 	public ResponseEntity<responseStructre<Employer>> getEmployerById(@RequestParam long employerId) {
 		return employerService.getEmployerById(employerId);
 	}
-	
+
 	@GetMapping("/getAll")
-	public List<Employer> getallEmployer()
-	{
+	public List<Employer> getallEmployer() {
 		return employerService.getallEmployer();
 	}
 }

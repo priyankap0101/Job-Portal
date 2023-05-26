@@ -31,9 +31,7 @@ public class Resume {
 	private String socialProfile3;
 	private String certification;
 	private String resumeSummary;
-	
 
-	
 	@OneToOne(mappedBy = "resume")
 	@JsonIgnore
 	private Applicant applicant;
@@ -44,7 +42,4 @@ public class Resume {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Project> projects;
 
-	
-	
-	
 }

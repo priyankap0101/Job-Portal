@@ -48,21 +48,19 @@ public class SkillService {
 
 				for (String Skill : Skills) {
 					Skill existingSkill = dao.getSkillByName(Skill);
-					
 
 					if (existingSkill != null) {
 
 						if (!resume.getSkills().contains(existingSkill)) {
 
 							resume.getSkills().add(existingSkill);// adding skiils into existing one
-						} 
-					}
-					else {
+						}
+					} else {
 						Skill newskill = new Skill();
 						newskill.setSkillName(Skill);
 
 						dao.saveSkill(newskill);
-						
+
 						resume.getSkills().add(newskill);
 					}
 

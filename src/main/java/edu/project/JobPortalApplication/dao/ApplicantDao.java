@@ -14,67 +14,55 @@ import edu.project.JobPortalApplication.entity.Applicant;
 import edu.project.JobPortalApplication.repositories.ApplicantRepo;
 import edu.project.JobPortalApplication.util.responseStructre;
 
-
-
 @Repository
 public class ApplicantDao {
 
 	@Autowired
 	private ApplicantRepo applicantRepo;
 
-
-	public Applicant addApplicant(Applicant applicant)
-	{
+	public Applicant addApplicant(Applicant applicant) {
 		return applicantRepo.save(applicant);
 	}
 
-
 	public Applicant getApplicant(long applicantId) {
-		
-		Optional<Applicant> optional=applicantRepo.findById(applicantId);
-		
-		if(optional.isEmpty())
-		{
+
+		Optional<Applicant> optional = applicantRepo.findById(applicantId);
+
+		if (optional.isEmpty()) {
 			return null;
-		}
-		else {
+		} else {
 			return optional.get();
 		}
-		
+
 	}
-	public Applicant updateApplicant(Applicant applicant,long applicantId)
-	{
-		Optional<Applicant> optional=applicantRepo.findById(applicantId);
-		
-		if(optional.isEmpty())
-		{
+
+	public Applicant updateApplicant(Applicant applicant, long applicantId) {
+		Optional<Applicant> optional = applicantRepo.findById(applicantId);
+
+		if (optional.isEmpty()) {
 			return null;
-		}
-		else {
+		} else {
 			applicant.setApplicantId(applicantId);
 			applicantRepo.save(applicant);
 			return optional.get();
 		}
-		
-	}
 
+	}
 
 	public void deleteApplicant(Applicant applicant) {
-	
-		 applicantRepo.delete(applicant);
-		
+
+		applicantRepo.delete(applicant);
+
 	}
-	public List<Applicant> getAllApplicant()
-	{
-		Optional<List<Applicant>>applicants =applicantRepo.getAllApplicant();
-		
-		if(applicants.isEmpty())
-		{
+
+	public List<Applicant> getAllApplicant() {
+		Optional<List<Applicant>> applicants = applicantRepo.getAllApplicant();
+
+		if (applicants.isEmpty()) {
 			return null;
-		}
-		else {
+		} else {
 			return applicants.get();
 		}
 	}
-	
+
 }
