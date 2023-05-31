@@ -1,6 +1,7 @@
 package edu.project.JobPortalApplication.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import edu.project.JobPortalApplication.entity.Applicant;
 import edu.project.JobPortalApplication.entity.Job;
 import edu.project.JobPortalApplication.entity.JobApplication;
 import edu.project.JobPortalApplication.entity.Resume;
+import edu.project.JobPortalApplication.exception.JobNotFoundById;
 import edu.project.JobPortalApplication.util.responseStructre;
 
 @Service

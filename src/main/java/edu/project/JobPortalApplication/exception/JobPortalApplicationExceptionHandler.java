@@ -74,5 +74,16 @@ public class JobPortalApplicationExceptionHandler {
 
 		return new ResponseEntity<responseStructre<String>>(responseStructure, HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler // handling exception in proper way
+	public ResponseEntity<responseStructre<String>> ProjectNotFoundById(ProjectNotFoundById projectNotFoundById) {
+		responseStructre<String> responseStructure = new responseStructre<>();
+
+		responseStructure.setStatusCode(HttpStatus.NOT_FOUND.value());
+
+
+		responseStructure.setData("Job not Found With the requested ID!!");
+
+		return new ResponseEntity<responseStructre<String>>(responseStructure, HttpStatus.NOT_FOUND);
+	}
 
 }

@@ -1,5 +1,7 @@
 package edu.project.JobPortalApplication.dao;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,5 +24,24 @@ public class ProjectDao {
 	
 		projectRepo.delete(project);
 		
+	}
+	public Project updateProject(Project project, long projectId)
+	{
+		 Optional<Project> optional =projectRepo.findById(projectId);
+		 
+		 if(optional.isEmpty())
+		 {
+			 return null;
+		 }
+		 else {
+			 projectRepo.save(project);
+			 
+			 return optional.get();
+		 }
+	}
+	public Optional<Project> getProjectById(long projectId)
+	{
+		 return projectRepo.findById(projectId);
+		 
 	}
 }

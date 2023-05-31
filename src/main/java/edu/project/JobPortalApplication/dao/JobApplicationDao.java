@@ -17,8 +17,10 @@ public class JobApplicationDao {
 	public JobApplication createJobApplication(JobApplication application) {
 		return applicationRepo.save(application);
 	}
-
-	public List<JobApplication> getJobApplicationByJob() {
+	public List<JobApplication> getJobApplicationByJob()
+	{
 		return applicationRepo.getJobApplicationByJob();
 	}
+
+	
 }
