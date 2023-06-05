@@ -1,5 +1,7 @@
 package edu.project.JobPortalApplication.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import edu.project.JobPortalApplication.dao.ResumeDao;
 import edu.project.JobPortalApplication.dto.ResumeDto;
 import edu.project.JobPortalApplication.entity.Applicant;
 import edu.project.JobPortalApplication.entity.Resume;
+import edu.project.JobPortalApplication.exception.ResumeNotFoundById;
 import edu.project.JobPortalApplication.util.responseStructre;
 
 @Service
@@ -49,18 +52,26 @@ public class ResumeService {
 
 			return new ResponseEntity<responseStructre<Resume>>(responseStructre, HttpStatus.CREATED);
 		} else {
-			return null;
+		
+			throw new ResumeNotFoundById("Resume not found with requested id..!!");
 		}
 	}
 
-	public ResponseEntity<responseStructre<Resume>> deleteResume(Resume resume) {
-		dao.deleteResume(resume);
-		responseStructre<Resume> responseStructre = new responseStructre<>();
+	public ResponseEntity<responseStructre<Resume>> getResumeById(long resumeId) {
 
-		responseStructre.setStatusCode(HttpStatus.OK.value());
-		responseStructre.setMessage("Resume Deleted Successfully");
-		responseStructre.setData(resume);
+		Optional<Resume> optional = dao.getResumeById(resumeId);
 
-		return new ResponseEntity<responseStructre<Resume>>(responseStructre, HttpStatus.OK);
+		if (optional.isPresent()) {
+
+			responseStructre<Resume> responseStructre = new responseStructre<>();
+
+			responseStructre.setStatusCode(HttpStatus.FOUND.value());
+			responseStructre.setMessage("Resume Found Successfully");
+			responseStructre.setData(optional.get());
+
+			return new ResponseEntity<responseStructre<Resume>>(responseStructre, HttpStatus.FOUND);
+
+		}
+		throw new ResumeNotFoundById("Resume not found with requested id..!!");
 	}
 }

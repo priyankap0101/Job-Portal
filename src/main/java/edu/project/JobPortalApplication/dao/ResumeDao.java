@@ -1,5 +1,7 @@
 package edu.project.JobPortalApplication.dao;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,10 +17,13 @@ public class ResumeDao {
 	public Resume saveResume(Resume resume) {
 		return repo.save(resume);
 	}
-
-	public void deleteResume(Resume resume) {
-
-		repo.delete(resume);
-
+	public Optional<Resume> getResumeById(long resumeId)
+	{
+		return repo.findById(resumeId);
 	}
+	
+	public void deleteResume(Resume optional) {
+		repo.delete(optional);
+	}
+
 }
